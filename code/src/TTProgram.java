@@ -11,6 +11,7 @@ import cs3500.tripletriad.view.TTGraphicsView;
 public class TTProgram {
 
   public static void main(String args[]) {
+    // main class
     String pathGrid = "docs" + File.separator + "boardDirectPath.config";
     String pathDeck = "docs" + File.separator + "cardsEnoughForAll.config";
     GridInitializer grid = new GridInitializer(pathGrid);
