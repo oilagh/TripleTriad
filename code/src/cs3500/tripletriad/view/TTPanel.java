@@ -48,6 +48,7 @@ public class TTPanel extends JPanel {
 
     this.g2d = (Graphics2D) g.create();
 
+    view.setTitle("Player: " + model.getPlayersTurn().toString());
     drawGrid(g2d);
   }
 
