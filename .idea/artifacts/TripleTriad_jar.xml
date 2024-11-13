@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="TripleTriad:jar">
+  <artifact type="jar" name="TripleTriad:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/TripleTriad_jar</output-path>
     <root id="archive" name="TripleTriad.jar">
       <element id="module-output" name="TripleTriad" />
