@@ -261,4 +261,13 @@ public class TripleTriadModel implements TTModel {
     throw new IllegalArgumentException("No such player.");
   }
 
+  @Override
+  public ReadOnlyTripleTriadModel getImmutableModel() {
+    return new TTImmutableModel(this);
+  }
+
+  @Override
+  public TTModel getMutableModel() {
+    return this;
+  }
 }
