@@ -56,7 +56,7 @@ creates the actual model for the game. The package player contains information r
 the game. Here you can find the interface for player and the class that implements it. In the view package
 you can find the code for displaying the view of the game. This package allows the player to see inside the
 model. There is an interface for the view and a class that implements it inside this package. We also have
-a main class titled TTProgram, which allows us to run the game. You can find the tests for our program inside
+a main class titled ThreeTrios, which allows us to run the game. You can find the tests for our program inside
 the test folder. Each directory in the src has a corresponding package where you can find the relevant tests.
 
 In the strategies package there is a Strategy interface, a strategy abstract class, a Strategy One Class

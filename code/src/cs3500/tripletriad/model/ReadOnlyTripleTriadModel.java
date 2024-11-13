@@ -75,5 +75,5 @@ public interface ReadOnlyTripleTriadModel {
    */
   int howManyPoints(TTPlayer player);
 
-  ReadOnlyTripleTriadModel getMutableModel();
+  TTModel getMutableModel();
 }

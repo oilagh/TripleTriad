@@ -19,6 +19,7 @@ import cs3500.tripletriad.gamecomponents.Card;
 import cs3500.tripletriad.gamecomponents.Direction;
 import cs3500.tripletriad.gamecomponents.Hole;
 import cs3500.tripletriad.gamecomponents.PlaceHolder;
+import cs3500.tripletriad.model.ReadOnlyTripleTriadModel;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.player.TTPlayer;
 
@@ -27,7 +28,7 @@ import cs3500.tripletriad.player.TTPlayer;
  */
 public class TTPanel extends JPanel {
 
-  private TTModel model;
+  private ReadOnlyTripleTriadModel model;
 
   private Graphics2D g2d;
 
@@ -174,7 +175,9 @@ public class TTPanel extends JPanel {
       }
       else if (selectedCardIndex >= 0) {
         try {
-          model.playToGrid(selectedCardIndex, y, x - 1);
+          TTModel mutableModel = model.getMutableModel();
+          mutableModel.playToGrid(selectedCardIndex, y, x - 1);
+          model = mutableModel.getMutableModel();
           System.out.println("Row: " + y + ". Col: " + x);
         } catch (IllegalArgumentException ex) {
           // do nothing

@@ -18,4 +18,5 @@ public interface TripleTriadController {
    * @throws IllegalArgumentException if any of the arguments are null.
    */
   void playGame(TripleTriadModel model, File fileGrid, File fileDeck);
+
 }
