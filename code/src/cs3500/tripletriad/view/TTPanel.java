@@ -161,7 +161,6 @@ public class TTPanel extends JPanel {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-      System.err.println(e.getX() + "," + e.getY());
       int widthCards = (2 + model.getGrid().gridList().get(0).size());
       int x = e.getX() / (TTPanel.this.getWidth() / widthCards);
       int y = e.getY() / (TTPanel.this.getHeight() / model.getGrid().gridList().size());
@@ -186,12 +185,17 @@ public class TTPanel extends JPanel {
     }
 
     private void selectCard(int x, int y) {
-      selectedCardIndex = y;
-      System.out.println("Player: " + model.getPlayersTurn().getColor().toString());
-      System.out.println("Card in hand: " + y);
-      int cardWidth = TTPanel.this.getWidth() / (2 + model.getGrid().gridList().get(0).size());
-      int handHeight = TTPanel.this.getHeight() / model.getPlayersTurn().getHand().size();
-      g2d.drawRect(x * cardWidth, y * handHeight, cardWidth - 10, handHeight - 10);
+      if(selectedCardIndex == y) {
+        selectedCardIndex = -1;
+      }
+      else {
+        selectedCardIndex = y;
+        System.out.println("Player: " + model.getPlayersTurn().toString());
+        System.out.println("Card in hand: " + y);
+        int cardWidth = TTPanel.this.getWidth() / (2 + model.getGrid().gridList().get(0).size());
+        int handHeight = TTPanel.this.getHeight() / model.getPlayersTurn().getHand().size();
+        g2d.drawRect(x * cardWidth, y * handHeight, cardWidth - 10, handHeight - 10);
+      }
     }
 
     @Override
