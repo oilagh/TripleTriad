@@ -49,6 +49,7 @@ public class StrategyOne extends AStrategies {
             int updatesPlayersCards = modelCopy.howManyPoints(model.getPlayersTurn());
             int difference = updatesPlayersCards - currentPlayersCards;
             if (difference > max) {
+              max = difference;
               listPositions.clear();
               cardsToBePlaced.clear();
               List<Integer> position = new ArrayList<>();
@@ -72,6 +73,11 @@ public class StrategyOne extends AStrategies {
       int index = strategyOneTieBreaker(listPositions);
       this.card = cardsToBePlaced.get(index);
     }
+    else if (max == 0) {
+      row = positions().get(0);
+      col = positions().get(1);
+      card = 0;
+    }
     else {
       row = listPositions.get(0).get(0);
       col = listPositions.get(0).get(1);
@@ -93,6 +99,22 @@ public class StrategyOne extends AStrategies {
     this.row = listPositions.get(index).get(0);
     this.col = listPositions.get(index).get(1);
     return index;
+  }
+
+  private List<Integer> positions() {
+    List<Integer> returnList = new ArrayList<>();
+    for (int rows = 0; rows < model.getGridDimensions().get(0) + 1; rows++) {
+      List<BoardCell> cols = model.getGrid().gridList().get(rows);
+      for (int col = 0; col < cols.size(); col ++) {
+        BoardCell cell = cols.get(col);
+        if (cell instanceof PlaceHolder) {
+          returnList.add(rows);
+          returnList.add(col);
+          return returnList;
+        }
+      }
+    }
+    throw new IllegalArgumentException("None left");
   }
 
 }

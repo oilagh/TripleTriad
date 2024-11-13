@@ -34,18 +34,18 @@ public class StrategyTwo extends AStrategies {
     }
     GridTT grid = model.getGrid();
     List<Integer> dimensions = model.getGridDimensions();
-    if (canBePlaced(grid.getCell(0, 0))) {
+    if (grid.getCell(0, 0) instanceof PlaceHolder) {
       this.row = 0;
       this.col = 0;
       this.card = whatCard(row, col);
     }
     else if (dimensions.get(0) > dimensions.get(1)) {
-      if (canBePlaced(grid.getCell(0, dimensions.get(1)))) {
+      if (grid.getCell(0, dimensions.get(1)) instanceof PlaceHolder) {
         this.row = 0;
         this.col = dimensions.get(1);
         this.card = whatCard(row, col);
       }
-      else if (canBePlaced(grid.getCell(dimensions.get(0), 0))) {
+      else if (grid.getCell(dimensions.get(0), 0) instanceof PlaceHolder) {
         this.row = dimensions.get(0);
         this.col = 0;
         this.card = whatCard(row, col);

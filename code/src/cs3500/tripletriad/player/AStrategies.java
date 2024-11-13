@@ -25,8 +25,8 @@ public abstract class AStrategies implements Strategies {
       throw new IllegalArgumentException("Model cannot be null");
     }
     this.model = model;
-    this.row = -1;
-    this.col = -1;
+    this.row = 0;
+    this.col = 0;
     this.card = 0;
   }
 
