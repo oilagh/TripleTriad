@@ -26,5 +26,6 @@ public final class ThreeTrios {
     model.startGame(deck.getDeck(), grid.getGrid());
     TTGraphicsView view = new TTGraphicsView(model);
     view.setVisible(true);
+    System.out.print(model.getGrid().leastFlippablePositions());
   }
 }

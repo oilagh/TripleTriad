@@ -4,40 +4,28 @@ package cs3500.tripletriad.view;
 
 import javax.swing.JFrame;
 
-import cs3500.tripletriad.controller.TTController;
-import cs3500.tripletriad.model.TTModel;
+import cs3500.tripletriad.model.ReadOnlyTripleTriadModel;
 
 /**
  * Represents the graphics view class that extends JFrame and implements TTView.
  * Allows the viewer to view the model.
  */
-public class TTGraphicsView extends JFrame implements TTView {
-  private TTPanel panel;
-  private TTModel model;
+public class TTGraphicsView extends JFrame implements TTFrame {
+  private TTPanelView panel;
+  private ReadOnlyTripleTriadModel model;
 
   /**
    * Constructor for TTGraphicsView.
    * @param model the model for which the view will be created.
    */
-  public TTGraphicsView(TTModel model) {
+  public TTGraphicsView(ReadOnlyTripleTriadModel model) {
     this.model = model;
-    TTPanel p = new TTPanel(model);
+    TTPanelView p = new TTPanelView(model);
     p.setView(this);
     this.panel = p;
     this.setSize(1000, 800);
     this.add(this.panel);
-  }
-
-  public void addClickListener(TTController listener) {
-    this.panel.addClickListener();
-  }
-
-  public void refresh() {
-    this.repaint();
-  }
-
-  public void makeVisible() {
-    this.setVisible(true);
+    this.setTitle("Player: " + model.getPlayersTurn().toString());
   }
 
 }

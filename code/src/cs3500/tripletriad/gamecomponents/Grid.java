@@ -1,5 +1,6 @@
 package cs3500.tripletriad.gamecomponents;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -193,5 +194,63 @@ public class Grid implements GridTT {
       newGrid.add(copyRow);
     }
     return new Grid(newGrid);
+  }
+
+  // Gets the least flippable points in the board
+  public List<Point> leastFlippablePositions() {
+    List<Point> points = new ArrayList<>();
+    int maxNeighbors = 5;
+    for (int row = 0; row < grid.size(); row++) {
+      List<BoardCell> column = grid.get(row);
+      for (int col = 0; col < column.size(); col++) {
+        if(howManyPlaceHolderNeighbors(row, col) < maxNeighbors
+        && howManyPlaceHolderNeighbors(row, col) >= 0) {
+          maxNeighbors = howManyPlaceHolderNeighbors(row, col);
+          points = new ArrayList<>();
+          points.add(new Point(row, col));
+        }
+        else if(howManyPlaceHolderNeighbors(row, col) == maxNeighbors) {
+          points.add(new Point(row, col));
+        }
+      }
+    }
+    return points;
+  }
+
+  // works with leastFlippablePositions and returns how many placeholders are next to it
+  private int howManyPlaceHolderNeighbors(int row, int col) {
+    int count = 0;
+    if(!(grid.get(row).get(col) instanceof PlaceHolder)) {
+      return -1;
+    }
+    try {
+      if (grid.get(row + 1).get(col) instanceof PlaceHolder) {
+        count++;
+      }
+    } catch (IndexOutOfBoundsException e) {
+      // card is on the edge of the grid
+    }
+    try {
+      if (grid.get(row - 1).get(col) instanceof PlaceHolder) {
+        count++;
+      }
+    } catch (IndexOutOfBoundsException e) {
+      // card is on the edge of the grid
+    }
+    try {
+      if (grid.get(row).get(col + 1) instanceof PlaceHolder) {
+        count++;
+      }
+    } catch (IndexOutOfBoundsException e) {
+      // card is on the edge of the grid
+    }
+    try {
+      if (grid.get(row).get(col - 1) instanceof PlaceHolder) {
+        count++;
+      }
+    } catch (IndexOutOfBoundsException e) {
+      // card is on the edge of the grid
+    }
+    return count;
   }
 }
