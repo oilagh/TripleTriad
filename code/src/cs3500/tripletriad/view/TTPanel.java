@@ -37,6 +37,7 @@ public class TTPanel extends JPanel {
 
   public TTPanel(TTModel model) {
     this.model = model;
+    this.addMouseListener(new TTTClickListener());
   }
 
 
@@ -151,19 +152,12 @@ public class TTPanel extends JPanel {
     }
   }
 
-  public void addClickListener(TTController listener) {
-    this.addMouseListener(new TTTClickListener(listener));
+  public void addClickListener() {
+    this.addMouseListener(new TTTClickListener());
   }
 
 
   class TTTClickListener implements MouseListener {
-
-    private final TTController controller;
-
-
-    public TTTClickListener(TTController controller) {
-      this.controller = controller;
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {

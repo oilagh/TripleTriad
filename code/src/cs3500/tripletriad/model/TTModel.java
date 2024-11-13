@@ -23,5 +23,4 @@ public interface TTModel extends ReadOnlyTripleTriadModel {
    */
   public void playToGrid(int cardInHand, int row, int col);
 
-
 }

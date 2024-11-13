@@ -29,7 +29,7 @@ public class TTGraphicsView extends JFrame implements TTView {
   }
 
   public void addClickListener(TTController listener) {
-    this.panel.addClickListener(listener);
+    this.panel.addClickListener();
   }
 
   public void refresh() {

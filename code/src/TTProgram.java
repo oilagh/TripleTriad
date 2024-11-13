@@ -26,7 +26,6 @@ public class TTProgram {
     TTModel model = new TripleTriadModel();
     model.startGame(deck.getDeck(), grid.getGrid());
     TTGraphicsView view = new TTGraphicsView(model);
-    view.addClickListener(new TTController(new StringReader(""), new StringBuilder()));
     view.setVisible(true);
   }
 }
