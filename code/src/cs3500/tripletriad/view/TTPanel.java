@@ -36,7 +36,7 @@ public class TTPanel extends JPanel {
 
   int selectedCardIndex = -1;
 
-  public TTPanel(TTModel model) {
+  public TTPanel(ReadOnlyTripleTriadModel model) {
     this.model = model;
     this.addMouseListener(new TTTClickListener());
   }
@@ -91,8 +91,10 @@ public class TTPanel extends JPanel {
           g2d.fillRect((j + 1) * cardWidth, i * cardHeight, cardWidth, cardHeight);
           g2d.setColor(Color.black);
           g2d.drawRect((j + 1) * cardWidth, i * cardHeight, cardWidth, cardHeight);
-
-          g2d.setFont(new Font("Arial", Font.PLAIN, 24));
+          int font = (this.getHeight() + this.getWidth()) /
+                  (2 * this.model.getGrid().gridList().size() *
+                  this.model.getGrid().gridList().get(0).size());
+          g2d.setFont(new Font("Arial", Font.PLAIN, font));
           g2d.drawString(north, cardWidth / 2 + (j + 1) * cardWidth,
                   cardHeight / 4 + i * cardHeight);
           g2d.drawString(south, cardWidth / 2 + (j + 1) * cardWidth,

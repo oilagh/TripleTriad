@@ -5,6 +5,7 @@ package cs3500.tripletriad.view;
 import javax.swing.JFrame;
 
 import cs3500.tripletriad.controller.TTController;
+import cs3500.tripletriad.model.ReadOnlyTripleTriadModel;
 import cs3500.tripletriad.model.TTModel;
 
 /**
@@ -13,13 +14,13 @@ import cs3500.tripletriad.model.TTModel;
  */
 public class TTGraphicsView extends JFrame implements TTView {
   private TTPanel panel;
-  private TTModel model;
+  private ReadOnlyTripleTriadModel model;
 
   /**
    * Constructor for TTGraphicsView.
    * @param model the model for which the view will be created.
    */
-  public TTGraphicsView(TTModel model) {
+  public TTGraphicsView(ReadOnlyTripleTriadModel model) {
     this.model = model;
     TTPanel p = new TTPanel(model);
     p.setView(this);
@@ -27,18 +28,6 @@ public class TTGraphicsView extends JFrame implements TTView {
     this.setSize(1000, 800);
     this.add(this.panel);
     this.setTitle("Player: " + model.getPlayersTurn().toString());
-  }
-
-  public void addClickListener(TTController listener) {
-    this.panel.addClickListener();
-  }
-
-  public void refresh() {
-    this.repaint();
-  }
-
-  public void makeVisible() {
-    this.setVisible(true);
   }
 
 }
