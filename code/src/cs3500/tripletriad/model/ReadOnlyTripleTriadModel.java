@@ -74,4 +74,6 @@ public interface ReadOnlyTripleTriadModel {
    * @return the number of points the player currently has.
    */
   int howManyPoints(TTPlayer player);
+
+  ReadOnlyTripleTriadModel getMutableModel();
 }
