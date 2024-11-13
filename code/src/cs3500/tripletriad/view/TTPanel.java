@@ -48,10 +48,6 @@ public class TTPanel extends JPanel {
 
     this.g2d = (Graphics2D) g.create();
 
-    String title = model.getPlayersTurn().toString();
-    Border border = BorderFactory.createTitledBorder(title);
-    this.setBorder(border);
-
     drawGrid(g2d);
   }
 
@@ -94,6 +90,7 @@ public class TTPanel extends JPanel {
           g2d.fillRect((j + 1) * cardWidth, i * cardHeight, cardWidth, cardHeight);
           g2d.setColor(Color.black);
           g2d.drawRect((j + 1) * cardWidth, i * cardHeight, cardWidth, cardHeight);
+
           g2d.setFont(new Font("Arial", Font.PLAIN, 24));
           g2d.drawString(north, cardWidth / 2 + (j + 1) * cardWidth,
                   cardHeight / 4 + i * cardHeight);
@@ -144,7 +141,14 @@ public class TTPanel extends JPanel {
                   cardWidth, handHeight, 10, 20);
           g2d.setStroke(defaultStroke);
         }
-        g2d.setFont(new Font("Arial", Font.PLAIN, 24));
+        int font = 24;
+        if(font - model.getPlayersTurn().getHand().size() > 10) {
+          font -= model.getPlayersTurn().getHand().size();
+        }
+        else {
+          font = 10;
+        }
+        g2d.setFont(new Font("Arial", Font.PLAIN, font));
         g2d.drawString(north, cardWidth / 2 + pos * cardWidth, handHeight / 4 + i * handHeight);
         g2d.drawString(south, cardWidth / 2 + pos * cardWidth, handHeight / 4 * 3 + i * handHeight);
         g2d.drawString(east, cardWidth / 4 + pos * cardWidth, handHeight / 2 + i * handHeight);

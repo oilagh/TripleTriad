@@ -26,6 +26,7 @@ public class TTGraphicsView extends JFrame implements TTView {
     this.panel = p;
     this.setSize(1000, 800);
     this.add(this.panel);
+    this.setTitle("Player: " + model.getPlayersTurn().toString());
   }
 
   public void addClickListener(TTController listener) {
