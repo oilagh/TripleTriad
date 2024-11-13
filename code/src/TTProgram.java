@@ -19,8 +19,8 @@ public class TTProgram {
    * @param args the argument that will be input for the program to run.
    */
   public static void main(String[] args) {
-    String pathGrid = "docs" + File.separator + "boardNoDirectPath.config";
-    String pathDeck = "docs" + File.separator + "cardsEnoughForAll.config";
+    String pathGrid = "code" + File.separator + "docs" + File.separator + "boardNoDirectPath.config";
+    String pathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
     GridInitializer grid = new GridInitializer(pathGrid);
     DeckInitializer deck = new DeckInitializer(pathDeck);
     TTModel model = new TripleTriadModel();
