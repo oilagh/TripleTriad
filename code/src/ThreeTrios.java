@@ -18,7 +18,7 @@ public final class ThreeTrios {
    */
   public static void main(String[] args) {
     // strategy 3
-    String pathGrid = "code" + File.separator + "docs" + File.separator + "boardNoDirectPath.config";
+    String pathGrid = "code" + File.separator + "docs" + File.separator + "board.config";
     String pathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
     GridInitializer grid = new GridInitializer(pathGrid);
     DeckInitializer deck = new DeckInitializer(pathDeck);

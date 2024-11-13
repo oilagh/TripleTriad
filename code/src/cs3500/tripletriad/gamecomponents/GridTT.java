@@ -2,6 +2,7 @@ package cs3500.tripletriad.gamecomponents;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The interface for the grid.
@@ -87,5 +88,5 @@ public interface GridTT {
    */
   GridTT copy();
 
-  List<Point> leastFlippablePositions();
+  Map<Point, List<Direction>> leastFlippablePositions();
 }

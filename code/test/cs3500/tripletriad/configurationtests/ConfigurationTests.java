@@ -16,8 +16,8 @@ public class ConfigurationTests {
 
   @Before
   public void init() {
-    String pathGrid = "docs" + File.separator + "board.config";
-    String pathDeck = "docs" + File.separator + "cards.config";
+    String pathGrid = "code" + File.separator + "docs" + File.separator + "board.config";
+    String pathDeck = "code" + File.separator + "docs" + File.separator + "cards.config";
     grid = new GridInitializer(pathGrid);
   }
 
