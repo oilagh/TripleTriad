@@ -5,6 +5,7 @@ import java.util.List;
 
 import cs3500.tripletriad.gamecomponents.BoardCell;
 import cs3500.tripletriad.gamecomponents.Card;
+import cs3500.tripletriad.gamecomponents.PlaceHolder;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
 
@@ -20,8 +21,9 @@ public class StrategyOne extends AStrategies {
    */
   public StrategyOne(TTModel model) {
     super(model);
-    this.row = -1;
-    this.col = -1;
+    this.row = 0;
+    this.col = 0;
+    this.card = 0;
   }
 
   @Override
@@ -36,29 +38,32 @@ public class StrategyOne extends AStrategies {
     for (int row = 0; row < grid.size(); row++) {
       List<BoardCell> rows = grid.get(row);
       for (int col = 0; col < grid.size(); col++) {
-        for (int cardIndex = 0;
-             cardIndex < model.getPlayersTurn().getHand().size();
-             cardIndex++) {
-          TTModel modelCopy = new TripleTriadModel(this.model);
-          int currentPlayersCards = modelCopy.howManyPoints(model.getPlayersTurn());
-          modelCopy.playToGrid(cardIndex, row, col);
-          int updatesPlayersCards = modelCopy.howManyPoints(model.getPlayersTurn());
-          int difference = updatesPlayersCards - currentPlayersCards;
-          if (difference > max) {
-            listPositions.clear();
-            cardsToBePlaced.clear();
-            List<Integer> position = new ArrayList<>();
-            position.add(row);
-            position.add(col);
-            listPositions.add(position);
-            cardsToBePlaced.add(cardIndex);
-          }
-          else if (difference == max) {
-            List<Integer> position = new ArrayList<>();
-            position.add(row);
-            position.add(col);
-            listPositions.add(position);
-            cardsToBePlaced.add(cardIndex);
+        BoardCell cell = rows.get(col);
+        if (cell instanceof PlaceHolder) {
+          for (int cardIndex = 0;
+               cardIndex < model.getPlayersTurn().getHand().size();
+               cardIndex++) {
+            TTModel modelCopy = new TripleTriadModel(this.model);
+            int currentPlayersCards = modelCopy.howManyPoints(model.getPlayersTurn());
+            modelCopy.playToGrid(cardIndex, row, col);
+            int updatesPlayersCards = modelCopy.howManyPoints(model.getPlayersTurn());
+            int difference = updatesPlayersCards - currentPlayersCards;
+            if (difference > max) {
+              listPositions.clear();
+              cardsToBePlaced.clear();
+              List<Integer> position = new ArrayList<>();
+              position.add(row);
+              position.add(col);
+              listPositions.add(position);
+              cardsToBePlaced.add(cardIndex);
+            }
+            else if (difference == max) {
+              List<Integer> position = new ArrayList<>();
+              position.add(row);
+              position.add(col);
+              listPositions.add(position);
+              cardsToBePlaced.add(cardIndex);
+            }
           }
         }
       }

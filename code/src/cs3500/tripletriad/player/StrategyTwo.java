@@ -22,8 +22,9 @@ public class StrategyTwo extends AStrategies {
    */
   public StrategyTwo(TTModel model) {
     super(model);
-    this.row = -1;
-    this.col = -1;
+    this.row = 0;
+    this.col = 0;
+    this.card = 0;
   }
 
   @Override

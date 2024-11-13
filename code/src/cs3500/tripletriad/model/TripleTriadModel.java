@@ -51,9 +51,9 @@ public class TripleTriadModel implements TTModel {
       throw new IllegalArgumentException("Model cannot be null");
     }
     TripleTriadModel other = (TripleTriadModel) model;
-    this.playerRed = other.playerRed;
-    this.playerBlue = other.playerBlue;
-    this.playerTurn = other.playerTurn;
+    this.playerRed = new Player(other.playerRed);
+    this.playerBlue = new Player(other.playerBlue);
+    this.playerTurn = new Player(other.playerTurn);
     this.grid = other.grid.copy();
     this.deck = other.deck;
     this.gameStarted = other.gameStarted;

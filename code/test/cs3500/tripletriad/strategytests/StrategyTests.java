@@ -90,6 +90,28 @@ public class StrategyTests {
     model.startGame(deck, grid);
   }
 
+  @Test
+  public void testStrategyOne() {
+    Strategies strategyOne = new StrategyOne(model);
+    strategyOne.strategyOne();
+    model.playToGrid(strategyOne.getCard(), strategyOne.getRow(), strategyOne.getCol());
+    TTView view = new TTStringView(model);
+    //checks to see if the strategy one places the card in the correct place.
+    Assert.assertTrue(view.toString().contains("Player: BLUE\n"
+            + "___\n"
+            + "_R_\n"));
+    //checks to see if the right card was placed.
+    Assert.assertEquals(model.getSpecificPlayer(Color.RED).handToString(),
+            "Blue Card 1 5 3 9\n"
+                    + "Red Card 4 3 3 8\n");
+    strategyOne.strategyOne();
+    model.playToGrid(strategyOne.getCard(), strategyOne.getRow(), strategyOne.getCol());
+    //checks to see if the strategy one places the card in the correct place.
+    Assert.assertTrue(view.toString().contains("Player: RED\n"
+            + "___\n" + "BB_"));
+    strategyOne.strategyOne();
+    model.playToGrid(strategyOne.getCard(), strategyOne.getRow(), strategyOne.getCol());
+  }
 
   @Test
   public void testStrategyTwo() {

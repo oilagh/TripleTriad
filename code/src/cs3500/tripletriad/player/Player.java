@@ -31,6 +31,16 @@ public class Player implements TTPlayer {
     this.hand = hand;
   }
 
+  public Player(TTPlayer player) {
+    Player other = (Player) player;
+    this.color = other.color;
+    this.hand = new ArrayList<>();
+    for (int index = 0; index < other.hand.size(); index++) {
+      Card card = other.hand.get(index);
+      this.hand.add(new Card(card));
+    }
+  }
+
   /**
    * Constructor for Player.
    * @param color the color of the player.
