@@ -1,6 +1,19 @@
 
 on invariant is that the card always has 4 attack values
-ADD EXPLANATION OF COORDINATES.
+
+COORDINATE SYSTEM FOR GRAPHICS:
+The Graphics use a coordinate system where I took the grid columns + 2 (for each hand of the player)
+and I made it so that I divided the height of the frame by this value to find the length of cards
+I stored this value and divided by mouse coordinates and casted to an integer to find the specific
+coordinates of the length. I did the same thing with the height by seeing how many rows there were and
+dividing to find the card length and divided by mouse coordinates and casted to get the specific column it existed in
+if it was in the hand column, i divided by the number of cards in the hand instead to get the appropriate coordinates for
+that section.
+COORDINATES ARE CENTERED AT THE TOP LEFT CORNER OF THE SCREEN WITH X axis pointing to the left positive direction
+and the Y axis pointing to the down positive direction.
+
+
+
 The purpose of this codebase is to create a two-player game version of Triple Triad.
 The main components of our system so far is the grid, deck, player, model, and view. The grid is
 represented as a list of a list of CardCells. The deck is a list of cards that will be dealt to the
@@ -78,3 +91,4 @@ CHANGES:
 - We added an interface for both the deck and the grid, so we did not use the concrete classes.
 - We moved the config readers to the controller package.
 - We added more methods to our model that would be helpful when implementing the strategies and view.
+

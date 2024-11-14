@@ -1,0 +1,6 @@
+Transcript for playing a card to a 3 by 3 grid on red turn for STRATEGY 2 (corner strategies)
+we think this is the easiest because it plays to the corners so we have to consider the least
+number of cards. In our test we received the following log.
+
+Game Started
+Strategy played card 0 to: 0 | 0
