@@ -1,6 +1,7 @@
 package cs3500.tripletriad.gamecomponents;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -198,19 +199,22 @@ public class Grid implements GridTT {
     return new Grid(newGrid);
   }
 
-  // Gets the least flippable points in the board
+  /**
+   * Gets the least flippable points in the board
+   * @return the list of points with their associated directions.
+   */
   public Map<Point, List<Direction>> leastFlippablePositions() {
     Map<Point, List<Direction>> mapPositions = new HashMap<>();
     int maxNeighbors = 5;
     for (int row = 0; row < grid.size(); row++) {
       List<BoardCell> column = grid.get(row);
       for (int col = 0; col < column.size(); col++) {
-        if(howManyPlaceHolderNeighbors(row, col).size() < maxNeighbors) {
+        if (howManyPlaceHolderNeighbors(row, col).size() < maxNeighbors) {
           maxNeighbors = howManyPlaceHolderNeighbors(row, col).size();
           mapPositions = new HashMap<>();
           mapPositions.put(new Point(row, col), howManyPlaceHolderNeighbors(row, col));
         }
-        else if(howManyPlaceHolderNeighbors(row, col).size() == maxNeighbors) {
+        else if (howManyPlaceHolderNeighbors(row, col).size() == maxNeighbors) {
           mapPositions.put(new Point(row, col), howManyPlaceHolderNeighbors(row, col));
         }
       }
@@ -221,7 +225,7 @@ public class Grid implements GridTT {
   // works with leastFlippablePositions and returns how many placeholders are next to it
   private List<Direction> howManyPlaceHolderNeighbors(int row, int col) {
     List<Direction> directions = new ArrayList<>();
-    if(!(grid.get(row).get(col) instanceof PlaceHolder)) {
+    if (!(grid.get(row).get(col) instanceof PlaceHolder)) {
       return new ArrayList<>(List.of(Direction.NORTH,
               Direction.NORTH,Direction.NORTH,Direction.NORTH, Direction.NORTH
               ));

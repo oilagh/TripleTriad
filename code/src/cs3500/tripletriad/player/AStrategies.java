@@ -3,7 +3,7 @@ package cs3500.tripletriad.player;
 import java.util.List;
 import java.util.ArrayList;
 
-import cs3500.tripletriad.gamecomponents.Card;
+
 import cs3500.tripletriad.model.TTModel;
 
 /**

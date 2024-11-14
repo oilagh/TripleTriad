@@ -184,6 +184,7 @@ public class StrategyTwo extends AStrategies {
   }
 
 
+  // checks edge cases where cards sit on the edge of the grid
   private boolean isAnEdge(int row, int col) {
     List<Integer> dimensions = this.model.getGridDimensions();
     if (row == 0 && col == 0 ) {

@@ -142,17 +142,21 @@ public class TTPanelView extends JPanel implements TTPanel {
           g2d.setStroke(defaultStroke);
         }
         int font = 24;
-        if(font - model.getPlayersTurn().getHand().size() > 10) {
+        if (font - model.getPlayersTurn().getHand().size() > 10) {
           font -= model.getPlayersTurn().getHand().size();
         }
         else {
           font = 10;
         }
         g2d.setFont(new Font("Arial", Font.PLAIN, font));
-        g2d.drawString(north, cardWidth / 2 + pos * cardWidth, handHeight / 4 + i * handHeight);
-        g2d.drawString(south, cardWidth / 2 + pos * cardWidth, handHeight / 4 * 3 + i * handHeight);
-        g2d.drawString(east, cardWidth / 4 + pos * cardWidth, handHeight / 2 + i * handHeight);
-        g2d.drawString(west, cardWidth / 4 * 3 + pos * cardWidth, handHeight / 2 + i * handHeight);
+        g2d.drawString(north, cardWidth / 2 + pos * cardWidth,
+                handHeight / 4 + i * handHeight);
+        g2d.drawString(south, cardWidth / 2 + pos * cardWidth,
+                handHeight / 4 * 3 + i * handHeight);
+        g2d.drawString(east, cardWidth / 4 + pos * cardWidth,
+                handHeight / 2 + i * handHeight);
+        g2d.drawString(west, cardWidth / 4 * 3 + pos * cardWidth,
+                handHeight / 2 + i * handHeight);
       }
     }
   }
@@ -192,7 +196,7 @@ public class TTPanelView extends JPanel implements TTPanel {
     }
 
     private void selectCard(int x, int y) {
-      if(selectedCardIndex == y) {
+      if (selectedCardIndex == y) {
         selectedCardIndex = -1;
       }
       else {
