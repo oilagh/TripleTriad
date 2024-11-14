@@ -1,6 +1,6 @@
 package cs3500.tripletriad.strategytests;
 
-import java.awt.*;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.List;
 
@@ -13,21 +13,20 @@ import cs3500.tripletriad.player.AStrategies;
 import cs3500.tripletriad.player.StrategyOne;
 import cs3500.tripletriad.player.TTPlayer;
 
+/**
+ * Represents the mock model.
+ */
 public class TTMockModel implements TTModel {
-  private Appendable out;
-  private TTModel model;
-  private AStrategies strategy;
+  private final Appendable out;
 
+  /**
+   * Represents the constructor for the mock model.
+   * @param out represents the appendable to push outs to.
+   */
   public TTMockModel(Appendable out) {
     this.out = out;
-    this.model = model;
   }
 
-  public TTMockModel(Appendable out, StrategyOne strategy) {
-    this.out = out;
-    this.model = model;
-    this.strategy = strategy;
-  }
 
   @Override
   public void startGame(DeckTT deck, GridTT grid) {

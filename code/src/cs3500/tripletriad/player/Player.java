@@ -32,7 +32,7 @@ public class Player implements TTPlayer {
   }
 
   /**
-   * Represents the constructor for a player given a Player itself
+   * Represents the constructor for a player given a Player itself.
    * @param player player to be given.
    */
   public Player(TTPlayer player) {

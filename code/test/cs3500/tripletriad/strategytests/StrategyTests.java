@@ -342,7 +342,7 @@ public class StrategyTests {
     model.playToGrid(strategyOne.getCard(), strategyOne.getRow(), strategyOne.getCol());
     Assert.assertTrue(view.toString().contains("Player: RED\n" + "RBR\n" + "RBB"));
   }
-  
+
   @Test
   public void testStrategyTwo() {
     Strategies strategyTwo = new StrategyTwo(model);
@@ -384,6 +384,20 @@ public class StrategyTests {
     Assert.assertEquals(model.getSpecificPlayer(Color.BLUE).handToString(),
             "Red Card 1 5 3 9\n");
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

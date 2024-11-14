@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cs3500.tripletriad.gamecomponents.BoardCell;
-import cs3500.tripletriad.gamecomponents.Card;
 import cs3500.tripletriad.gamecomponents.PlaceHolder;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;

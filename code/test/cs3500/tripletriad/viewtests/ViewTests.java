@@ -88,22 +88,28 @@ public class ViewTests {
 
     // config Model
     configModel = new TripleTriadModel();
-    String pathGrid = "code" + File.separator + "docs" + File.separator + "boardDirectPath.config";
-    String pathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
+    String pathGrid = "code" + File.separator + "docs" + File.separator
+            + "boardDirectPath.config";
+    String pathDeck = "code" + File.separator + "docs" + File.separator
+            + "cardsEnoughForAll.config";
     configModel.startGame(new DeckInitializer(pathDeck).getDeck(),
             new GridInitializer(pathGrid).getGrid());
 
     // config Model Small
     configModelSmall = new TripleTriadModel();
-    String smallPathGrid = "code" + File.separator + "docs" + File.separator + "boardNoHoles.config";
-    String smallPathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
+    String smallPathGrid = "code" + File.separator + "docs" + File.separator
+            + "boardNoHoles.config";
+    String smallPathDeck = "code" + File.separator + "docs" + File.separator
+            + "cardsEnoughForAll.config";
     configModelSmall.startGame(new DeckInitializer(smallPathDeck).getDeck(),
             new GridInitializer(smallPathGrid).getGrid());
 
     // config Model PlaceHolder
     configModelOddPlaceholder = new TripleTriadModel();
-    String placeholderGrid = "code" + File.separator + "docs" + File.separator + "boardOddPlaceholders.config";
-    String placeholderDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
+    String placeholderGrid = "code" + File.separator + "docs" + File.separator
+            + "boardOddPlaceholders.config";
+    String placeholderDeck = "code" + File.separator + "docs" + File.separator
+            + "cardsEnoughForAll.config";
     configModelOddPlaceholder.startGame(new DeckInitializer(placeholderDeck).getDeck(),
             new GridInitializer(placeholderGrid).getGrid());
   }

@@ -203,9 +203,11 @@ public class TTPanelView extends JPanel implements TTPanel {
         selectedCardIndex = y;
         System.out.println("Player: " + model.getPlayersTurn().toString());
         System.out.println("Card in hand: " + y);
-        int cardWidth = TTPanelView.this.getWidth() / (2 + model.getGrid().gridList().get(0).size());
+        int cardWidth = TTPanelView.this.getWidth() /
+                (2 + model.getGrid().gridList().get(0).size());
         int handHeight = TTPanelView.this.getHeight() / model.getPlayersTurn().getHand().size();
-        g2d.drawRect(x * cardWidth, y * handHeight, cardWidth - 10, handHeight - 10);
+        g2d.drawRect(x * cardWidth, y * handHeight,
+                cardWidth - 10, handHeight - 10);
       }
     }
 
