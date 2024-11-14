@@ -1,4 +1,4 @@
-package cs3500.tripletriad.model;
+package cs3500.tripletriad.strategytests;
 
 import java.awt.*;
 import java.io.IOException;
@@ -7,13 +7,26 @@ import java.util.List;
 import cs3500.tripletriad.gamecomponents.BoardCell;
 import cs3500.tripletriad.gamecomponents.DeckTT;
 import cs3500.tripletriad.gamecomponents.GridTT;
+import cs3500.tripletriad.model.ReadOnlyTripleTriadModel;
+import cs3500.tripletriad.model.TTModel;
+import cs3500.tripletriad.player.AStrategies;
+import cs3500.tripletriad.player.StrategyOne;
 import cs3500.tripletriad.player.TTPlayer;
 
 public class TTMockModel implements TTModel {
   private Appendable out;
+  private TTModel model;
+  private AStrategies strategy;
 
   public TTMockModel(Appendable out) {
     this.out = out;
+    this.model = model;
+  }
+
+  public TTMockModel(Appendable out, StrategyOne strategy) {
+    this.out = out;
+    this.model = model;
+    this.strategy = strategy;
   }
 
   @Override

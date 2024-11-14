@@ -10,12 +10,16 @@ import cs3500.tripletriad.gamecomponents.Deck;
 import cs3500.tripletriad.gamecomponents.Direction;
 import cs3500.tripletriad.model.TTModel;
 
+/**
+ * Represents a Strategy Three for our Players, but was unfinished due to a lack of time.
+ */
 public class StrategyThree extends AStrategies {
 
   public StrategyThree(TTModel model) {
     super(model);
   }
 
+  // Stores the card hand and index of the row and col to play to for the current strategy.
   public void strategyThree() {
     Map<Point, List<Direction>> points = model.getGrid().leastFlippablePositions();
     List<Card> deck = model.getPlayersTurn().getHand();
@@ -36,6 +40,7 @@ public class StrategyThree extends AStrategies {
     }
   }
 
+  // supposed to tell you how many cards in the opposing hand can beat a specified Attack Value
   private int beatableCards(List<Card> otherHand, AttackValue value) {
     List<Card> deck = model.getPlayersTurn().getHand();
     return 0;
