@@ -1,6 +1,6 @@
 package cs3500.tripletriad.gamecomponents;
 
-import java.awt.Color;
+import java.awt.Point;
 import java.util.List;
 import java.util.Map;
 
