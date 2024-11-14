@@ -60,9 +60,9 @@ public class StrategyTests {
 
     Map<Direction, AttackValue> values3 =
             new HashMap<>(Map.of(Direction.NORTH, AttackValue.TEN,
-            Direction.EAST, AttackValue.TEN,
-            Direction.SOUTH, AttackValue.TEN,
-            Direction.WEST, AttackValue.TEN));
+                    Direction.EAST, AttackValue.TEN,
+                    Direction.SOUTH, AttackValue.TEN,
+                    Direction.WEST, AttackValue.TEN));
     Map<Direction, AttackValue> values4 =
             new HashMap<>(Map.of(Direction.NORTH, AttackValue.FIVE,
                     Direction.EAST, AttackValue.THREE,
@@ -298,7 +298,7 @@ public class StrategyTests {
     strategyTwo.strategyTwo();
     model2.playToGrid(strategyOne.getCard(), strategyTwo.getRow(), strategyTwo.getCol());
     Assert.assertTrue(view.toString().contains("Player: BLUE\n" + "RBBR\n"
-                    + "__B \n" + " ___\n"));
+            + "__B \n" + " ___\n"));
     Assert.assertEquals(model2.getSpecificPlayer(Color.RED).handToString(), "Card4 4 3 3 8\n"
             + "Card5 9 4 2 7\n");
   }
@@ -319,7 +319,7 @@ public class StrategyTests {
             + "___\n"));
     //checks to see if the right card was placed.
     Assert.assertEquals(model.getSpecificPlayer(Color.RED).handToString(),
-                    "Red Card 4 3 3 8\n" + "Blue Card2 4 3 3 8\n");
+            "Red Card 4 3 3 8\n" + "Blue Card2 4 3 3 8\n");
     strategyOne.strategyOne();
     model.playToGrid(strategyOne.getCard(), strategyOne.getRow(), strategyOne.getCol());
     //checks to see if the strategy one places the card in the correct place.
