@@ -1,6 +1,6 @@
 package cs3500.tripletriad.gamecomponents;
 
-import java.awt.Color;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -200,7 +200,7 @@ public class Grid implements GridTT {
   }
 
   /**
-   * Gets the least flippable points in the board
+   * Gets the least flippable points in the board.
    * @return the list of points with their associated directions.
    */
   public Map<Point, List<Direction>> leastFlippablePositions() {

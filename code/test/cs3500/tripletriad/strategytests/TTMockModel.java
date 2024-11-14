@@ -9,8 +9,6 @@ import cs3500.tripletriad.gamecomponents.DeckTT;
 import cs3500.tripletriad.gamecomponents.GridTT;
 import cs3500.tripletriad.model.ReadOnlyTripleTriadModel;
 import cs3500.tripletriad.model.TTModel;
-import cs3500.tripletriad.player.AStrategies;
-import cs3500.tripletriad.player.StrategyOne;
 import cs3500.tripletriad.player.TTPlayer;
 
 /**

@@ -39,7 +39,6 @@ public class StrategyTests {
   private Map<Direction, AttackValue> values;
   private TTModel model;
   private TTModel model2;
-  private Deck deck2;
 
 
   @Before
@@ -152,7 +151,7 @@ public class StrategyTests {
                     Direction.WEST, AttackValue.ONE));
 
 
-    Card card1 = new Card ("Card1", values4, Color.RED);
+    Card card1 = new Card("Card1", values4, Color.RED);
     Card card2 = new Card("Card2", values3, Color.BLUE);
     Card card3 = new Card("Card3", values, Color.RED);
     Card card4 = new Card("Card4", values2, Color.BLUE);
@@ -196,7 +195,7 @@ public class StrategyTests {
     card.add(card18);
     card.add(card19);
     card.add(card20);
-    this.deck2 = new Deck(card);
+    DeckTT deck2 = new Deck(card);
 
     Card blueCard = new Card("Blue Card", values, Color.BLUE);
     Card redCard = new Card("Red Card", values2, Color.RED);
@@ -258,11 +257,13 @@ public class StrategyTests {
     listCells.add(cellList5);
     Grid grid2 = new Grid(listCells);
 
+
     model = new TripleTriadModel(redPlayer, bluePlayer, grid, deck);
     model.startGame(deck, grid);
 
     model2 = new TripleTriadModel(redPlayer2, bluePlayer2, grid2, deck2);
     model2.startGame(deck2, grid2);
+
   }
 
 
@@ -292,7 +293,7 @@ public class StrategyTests {
             + "R_B_\n" + "__B \n" + " ___\n"));
     strategyOne.strategyOne();
     model2.playToGrid(strategyOne.getCard(), strategyOne.getRow(), strategyOne.getCol());
-    Assert.assertTrue(view.toString().contains("Player: RED\n" +"RBB_\n" + "__B \n"
+    Assert.assertTrue(view.toString().contains("Player: RED\n" + "RBB_\n" + "__B \n"
             + " ___\n"));
     strategyTwo.strategyTwo();
     model2.playToGrid(strategyOne.getCard(), strategyTwo.getRow(), strategyTwo.getCol());
@@ -351,8 +352,8 @@ public class StrategyTests {
     TTView view = new TTStringView(model);
     //checks to see if the card was placed in the right spot.
     Assert.assertTrue(view.toString().contains("Player: BLUE\n"
-    + "R__\n"
-    + "___\n"));
+            + "R__\n"
+            + "___\n"));
     //checks to see if the right card was placed on the grid.
     Assert.assertEquals(model.getSpecificPlayer(Color.RED).handToString(),
             "Red Card 4 3 3 8\n" + "Blue Card2 4 3 3 8\n");
@@ -360,8 +361,8 @@ public class StrategyTests {
     model.playToGrid(strategyTwo.getCard(), strategyTwo.getRow(), strategyTwo.getCol());
     //checks to see if the card was placed in the right spot.
     Assert.assertTrue(view.toString().contains("Player: RED\n"
-    + "R__\n"
-    + "B__\n"));
+            + "R__\n"
+            + "B__\n"));
     //checks to see if the right card was placed on the grid.
     Assert.assertEquals(model.getSpecificPlayer(Color.BLUE).handToString(),
             "Red Card2 1 5 3 9\n" + "Red Card 1 5 3 9\n");
@@ -369,8 +370,8 @@ public class StrategyTests {
     model.playToGrid(strategyTwo.getCard(), strategyTwo.getRow(), strategyTwo.getCol());
     //checks to see if the card was placed in the right spot.
     Assert.assertTrue(view.toString().contains("Player: BLUE\n"
-    + "R_R\n"
-    + "B__\n"));
+            + "R_R\n"
+            + "B__\n"));
     //checks to see if the right card was placed on the grid.
     Assert.assertEquals(model.getSpecificPlayer(Color.RED).handToString(),
             "Blue Card2 4 3 3 8\n");
@@ -378,8 +379,8 @@ public class StrategyTests {
     model.playToGrid(strategyTwo.getCard(), strategyTwo.getRow(), strategyTwo.getCol());
     //checks to see if the card was placed in the right spot.
     Assert.assertTrue(view.toString().contains("Player: RED\n"
-    + "R_R\n"
-    + "B_B\n"));
+            + "R_R\n"
+            + "B_B\n"));
     //checks to see if the right card was placed on the grid.
     Assert.assertEquals(model.getSpecificPlayer(Color.BLUE).handToString(),
             "Red Card 1 5 3 9\n");
