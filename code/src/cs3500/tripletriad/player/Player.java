@@ -31,6 +31,10 @@ public class Player implements TTPlayer {
     this.hand = hand;
   }
 
+  /**
+   * Represents the constructor for a player given a Player itself
+   * @param player player to be given.
+   */
   public Player(TTPlayer player) {
     Player other = (Player) player;
     this.color = other.color;

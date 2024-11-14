@@ -2,7 +2,6 @@ package cs3500.tripletriad.player;
 
 import java.util.List;
 
-import cs3500.tripletriad.gamecomponents.Card;
 
 /**
  * This represents the strategies for the computer players.
