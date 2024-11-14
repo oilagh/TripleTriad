@@ -12,6 +12,9 @@ import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
 import cs3500.tripletriad.player.StrategyOne;
 
+/**
+ * Represents tests for Strategy 2 that makes decisions for the player.
+ */
 public class Strategy2 {
   private TTModel model;
   private TTModel model2;
@@ -21,7 +24,8 @@ public class Strategy2 {
   @Before
   public void setUp() {
     String pathGrid = "code" + File.separator + "docs" + File.separator + "strategyBoard.config";
-    String pathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
+    String pathDeck = "code" + File.separator +
+            "docs" + File.separator + "cardsEnoughForAll.config";
     grid = new GridInitializer(pathGrid);
     deck = new DeckInitializer(pathDeck);
     model = new TripleTriadModel();

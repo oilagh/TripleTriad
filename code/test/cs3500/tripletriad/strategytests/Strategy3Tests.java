@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
+
+import java.awt.Point;
 import java.util.List;
 import java.io.File;
 import java.util.ArrayList;
@@ -14,17 +15,22 @@ import cs3500.tripletriad.controller.config.GridInitializer;
 import cs3500.tripletriad.gamecomponents.Direction;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
-import cs3500.tripletriad.view.TTGraphicsView;
 
+/**
+ * Represents strategy 3 tests to test the functionality of playing cards with the given ruleset.
+ */
 public class Strategy3Tests {
   private TTModel model;
   private TTModel model2;
 
   @Before
   public void setUp() {
-    String pathGrid = "code" + File.separator + "docs" + File.separator + "board.config";
-    String pathGrid2 = "code" + File.separator + "docs" + File.separator + "boardOddPlaceholders.config";
-    String pathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
+    String pathGrid = "code" + File.separator + "docs"
+            + File.separator + "board.config";
+    String pathGrid2 = "code" + File.separator + "docs"
+            + File.separator + "boardOddPlaceholders.config";
+    String pathDeck = "code" + File.separator + "docs"
+            + File.separator + "cardsEnoughForAll.config";
     GridInitializer grid = new GridInitializer(pathGrid);
     GridInitializer grid2 = new GridInitializer(pathGrid2);
     DeckInitializer deck = new DeckInitializer(pathDeck);

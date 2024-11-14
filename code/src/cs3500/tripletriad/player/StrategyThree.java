@@ -27,10 +27,10 @@ public class StrategyThree extends AStrategies {
     List<Card> deck = model.getPlayersTurn().getHand();
     List<Card> otherDeck;
     if (model.getPlayersTurn().getColor().equals(Color.BLUE)) {
-      otherDeck = model.getSpecificPlayer(Color.RED).getHand();;
+      otherDeck = model.getSpecificPlayer(Color.RED).getHand();
     }
     else {
-      otherDeck = model.getSpecificPlayer(Color.BLUE).getHand();;
+      otherDeck = model.getSpecificPlayer(Color.BLUE).getHand();
     }
     for (Point point : points.keySet()) {
       for (Direction direction : points.get(point)) {
