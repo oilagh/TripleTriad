@@ -147,6 +147,9 @@ public class TripleTriadModel implements TTModel {
     if (!grid.isCoordinateUnoccupied(row, col)) {
       throw new IllegalArgumentException("Coordinate is occupied or is a hole"  + row + "|" + col);
     }
+    if (idxHand > this.getPlayersTurn().getHand().size()) {
+      throw new IllegalArgumentException("Invalid index hand: " + idxHand);
+    }
     grid.setGrid(row, col, playerTurn.getHand().get(idxHand));
     playerTurn.getHand().remove(idxHand);
     if (playerTurn == playerRed) {

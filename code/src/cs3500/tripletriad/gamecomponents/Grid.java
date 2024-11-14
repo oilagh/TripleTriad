@@ -2,7 +2,9 @@ package cs3500.tripletriad.gamecomponents;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This class reads the grid input from the file.
@@ -197,60 +199,61 @@ public class Grid implements GridTT {
   }
 
   // Gets the least flippable points in the board
-  public List<Point> leastFlippablePositions() {
-    List<Point> points = new ArrayList<>();
+  public Map<Point, List<Direction>> leastFlippablePositions() {
+    Map<Point, List<Direction>> mapPositions = new HashMap<>();
     int maxNeighbors = 5;
     for (int row = 0; row < grid.size(); row++) {
       List<BoardCell> column = grid.get(row);
       for (int col = 0; col < column.size(); col++) {
-        if(howManyPlaceHolderNeighbors(row, col) < maxNeighbors
-        && howManyPlaceHolderNeighbors(row, col) >= 0) {
-          maxNeighbors = howManyPlaceHolderNeighbors(row, col);
-          points = new ArrayList<>();
-          points.add(new Point(row, col));
+        if(howManyPlaceHolderNeighbors(row, col).size() < maxNeighbors) {
+          maxNeighbors = howManyPlaceHolderNeighbors(row, col).size();
+          mapPositions = new HashMap<>();
+          mapPositions.put(new Point(row, col), howManyPlaceHolderNeighbors(row, col));
         }
-        else if(howManyPlaceHolderNeighbors(row, col) == maxNeighbors) {
-          points.add(new Point(row, col));
+        else if(howManyPlaceHolderNeighbors(row, col).size() == maxNeighbors) {
+          mapPositions.put(new Point(row, col), howManyPlaceHolderNeighbors(row, col));
         }
       }
     }
-    return points;
+    return mapPositions;
   }
 
   // works with leastFlippablePositions and returns how many placeholders are next to it
-  private int howManyPlaceHolderNeighbors(int row, int col) {
-    int count = 0;
+  private List<Direction> howManyPlaceHolderNeighbors(int row, int col) {
+    List<Direction> directions = new ArrayList<>();
     if(!(grid.get(row).get(col) instanceof PlaceHolder)) {
-      return -1;
+      return new ArrayList<>(List.of(Direction.NORTH,
+              Direction.NORTH,Direction.NORTH,Direction.NORTH, Direction.NORTH
+              ));
     }
     try {
       if (grid.get(row + 1).get(col) instanceof PlaceHolder) {
-        count++;
+        directions.add(Direction.NORTH);
       }
     } catch (IndexOutOfBoundsException e) {
       // card is on the edge of the grid
     }
     try {
       if (grid.get(row - 1).get(col) instanceof PlaceHolder) {
-        count++;
+        directions.add(Direction.SOUTH);
       }
     } catch (IndexOutOfBoundsException e) {
       // card is on the edge of the grid
     }
     try {
       if (grid.get(row).get(col + 1) instanceof PlaceHolder) {
-        count++;
+        directions.add(Direction.EAST);
       }
     } catch (IndexOutOfBoundsException e) {
       // card is on the edge of the grid
     }
     try {
       if (grid.get(row).get(col - 1) instanceof PlaceHolder) {
-        count++;
+        directions.add(Direction.WEST);
       }
     } catch (IndexOutOfBoundsException e) {
       // card is on the edge of the grid
     }
-    return count;
+    return directions;
   }
 }

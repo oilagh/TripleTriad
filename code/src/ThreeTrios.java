@@ -17,8 +17,7 @@ public final class ThreeTrios {
    * @param args the argument that will be input for the program to run.
    */
   public static void main(String[] args) {
-    // strategy 3
-    String pathGrid = "code" + File.separator + "docs" + File.separator + "boardNoDirectPath.config";
+    String pathGrid = "code" + File.separator + "docs" + File.separator + "board.config";
     String pathDeck = "code" + File.separator + "docs" + File.separator + "cardsEnoughForAll.config";
     GridInitializer grid = new GridInitializer(pathGrid);
     DeckInitializer deck = new DeckInitializer(pathDeck);
@@ -26,6 +25,5 @@ public final class ThreeTrios {
     model.startGame(deck.getDeck(), grid.getGrid());
     TTGraphicsView view = new TTGraphicsView(model);
     view.setVisible(true);
-    System.out.print(model.getGrid().leastFlippablePositions());
   }
 }
