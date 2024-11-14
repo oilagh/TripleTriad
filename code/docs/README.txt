@@ -63,7 +63,11 @@ In the strategies package there is a Strategy interface, a strategy abstract cla
 and a Strategy Two class. The abstract class contains the constructor and both the strategy one and
 strategy two classes. This allows us to have more control over where these methods are called. It now throws
 an exception if you try and call the strategy one method on the strategy two class or the strategy two
-method on the strategy two class.
+method on the strategy two class. Each strategy can be used to determine the best card and the best position
+to placed the card on the grid. Strategy one takes into account the best card and position
+that flips the most cards of the other players. Strategy two takes into account the corners
+because only two of the attack values are exposed. It also determines the card with the highest two
+attack values that are exposed.
 
 INVARIANT EXAMPLES:
 - the card always has four attack values paired to each direction
