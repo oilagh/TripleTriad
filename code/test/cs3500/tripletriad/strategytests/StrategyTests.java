@@ -385,22 +385,6 @@ public class StrategyTests {
             "Red Card 1 5 3 9\n");
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //tests to see if strategy one throws an exception
   //when the game is already over.
   @Test (expected = IllegalStateException.class)
