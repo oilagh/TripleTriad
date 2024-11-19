@@ -10,6 +10,8 @@ import cs3500.tripletriad.gamecomponents.Deck;
 import cs3500.tripletriad.gamecomponents.DeckTT;
 import cs3500.tripletriad.gamecomponents.GridTT;
 import cs3500.tripletriad.gamecomponents.Grid;
+import cs3500.tripletriad.player.HumanPlayer;
+import cs3500.tripletriad.player.MachinePlayer;
 import cs3500.tripletriad.player.Player;
 import cs3500.tripletriad.player.TTPlayer;
 
@@ -34,8 +36,8 @@ public class TripleTriadModel implements TTModel {
     if (grid == null || deck == null) {
       throw new IllegalArgumentException("No Arguments can be null.");
     }
-    this.playerRed = new Player(new ArrayList<>(), Color.RED);
-    this.playerBlue = new Player(new ArrayList<>(), Color.BLUE);
+    this.playerRed = new HumanPlayer(new ArrayList<>(), Color.RED, this);
+    this.playerBlue = new HumanPlayer(new ArrayList<>(), Color.BLUE, this);
     this.playerTurn = playerRed;
     this.grid = grid;
     this.deck = deck;
@@ -51,11 +53,27 @@ public class TripleTriadModel implements TTModel {
       throw new IllegalArgumentException("Model cannot be null");
     }
     TripleTriadModel other = (TripleTriadModel) model;
-    this.playerRed = new Player(other.playerRed);
-    this.playerBlue = new Player(other.playerBlue);
-    this.playerTurn = new Player(other.playerTurn);
+    if (other.playerRed instanceof HumanPlayer) {
+      this.playerRed = new HumanPlayer(other.playerRed);
+    }
+    else if (other.playerRed instanceof MachinePlayer) {
+      this.playerRed = new MachinePlayer(other.playerRed);
+    }
+    else {
+      throw new IllegalArgumentException("Invalid Player Type.");
+    }
+    if (other.playerBlue instanceof HumanPlayer) {
+      this.playerBlue = new HumanPlayer(other.playerBlue);
+    }
+    else if (other.playerBlue instanceof MachinePlayer) {
+      this.playerBlue = new MachinePlayer(other.playerTurn);
+    }
+    else {
+      throw new IllegalArgumentException("Invalid Player type");
+    }
     this.grid = other.grid.copy();
     this.deck = other.deck;
+    this.playerTurn = other.playerTurn;
     this.gameStarted = other.gameStarted;
   }
 
@@ -84,8 +102,8 @@ public class TripleTriadModel implements TTModel {
   public TripleTriadModel() {
     this.grid = new Grid();
     this.deck = new Deck();
-    this.playerRed = new Player(new ArrayList<>(), Color.RED);
-    this.playerBlue = new Player(new ArrayList<>(), Color.BLUE);
+    this.playerRed = new HumanPlayer(new ArrayList<>(), Color.RED, this);
+    this.playerBlue = new HumanPlayer(new ArrayList<>(), Color.BLUE, this);
     this.playerTurn = playerRed;
     gameStarted = false;
   }

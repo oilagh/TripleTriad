@@ -10,7 +10,7 @@ import cs3500.tripletriad.controller.config.DeckInitializer;
 import cs3500.tripletriad.controller.config.GridInitializer;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
-import cs3500.tripletriad.player.StrategyOne;
+import cs3500.tripletriad.strategies.StrategyOne;
 
 /**
  * Represents tests for Strategy 2 that makes decisions for the player.

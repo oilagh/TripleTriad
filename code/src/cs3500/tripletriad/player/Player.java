@@ -6,20 +6,23 @@ import java.util.List;
 import java.util.Objects;
 
 import cs3500.tripletriad.gamecomponents.Card;
+import cs3500.tripletriad.model.TTModel;
+import cs3500.tripletriad.model.TripleTriadModel;
 
 /**
  * This class represents a player of triple triad.
  */
-public class Player implements TTPlayer {
-  private List<Card> hand;
-  private Color color;
+public abstract class Player implements TTPlayer {
+  protected List<Card> hand;
+  protected Color color;
+  protected TTModel model;
 
   /**
    * Constructor for Player.
    * @param hand the cards that belong to the player.
    */
-  public Player(List<Card> hand, Color color) {
-    if (hand == null || color == null) {
+  public Player(List<Card> hand, Color color, TTModel model) {
+    if (hand == null || color == null || model == null) {
       throw new IllegalArgumentException("Hand cannot be null");
     }
     for (Card card : hand) {
@@ -29,6 +32,7 @@ public class Player implements TTPlayer {
     }
     this.color = color;
     this.hand = hand;
+    this.model = model;
   }
 
   /**
@@ -43,6 +47,7 @@ public class Player implements TTPlayer {
       Card card = other.hand.get(index);
       this.hand.add(new Card(card));
     }
+    this.model = TripleTriadModel(other.model);
   }
 
   /**

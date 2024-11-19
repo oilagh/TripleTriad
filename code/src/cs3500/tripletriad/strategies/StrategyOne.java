@@ -1,4 +1,4 @@
-package cs3500.tripletriad.player;
+package cs3500.tripletriad.strategies;
 
 import java.util.ArrayList;
 import java.util.List;

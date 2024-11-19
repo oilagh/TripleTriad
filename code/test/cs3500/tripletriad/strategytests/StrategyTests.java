@@ -23,9 +23,9 @@ import cs3500.tripletriad.gamecomponents.PlaceHolder;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
 import cs3500.tripletriad.player.Player;
-import cs3500.tripletriad.player.Strategies;
-import cs3500.tripletriad.player.StrategyOne;
-import cs3500.tripletriad.player.StrategyTwo;
+import cs3500.tripletriad.strategies.Strategies;
+import cs3500.tripletriad.strategies.StrategyOne;
+import cs3500.tripletriad.strategies.StrategyTwo;
 import cs3500.tripletriad.view.TTStringView;
 import cs3500.tripletriad.view.TTView;
 
