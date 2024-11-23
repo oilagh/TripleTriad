@@ -22,7 +22,9 @@ import cs3500.tripletriad.gamecomponents.Hole;
 import cs3500.tripletriad.gamecomponents.PlaceHolder;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
+import cs3500.tripletriad.player.HumanPlayer;
 import cs3500.tripletriad.player.Player;
+
 import cs3500.tripletriad.strategies.Strategies;
 import cs3500.tripletriad.strategies.StrategyOne;
 import cs3500.tripletriad.strategies.StrategyTwo;
@@ -43,10 +45,10 @@ public class StrategyTests {
 
   @Before
   public void init() {
-    Player bluePlayer = new Player(Color.BLUE);
-    Player redPlayer = new Player(Color.RED);
-    Player bluePlayer2 = new Player(Color.BLUE);
-    Player redPlayer2 = new Player(Color.RED);
+    Player bluePlayer = new HumanPlayer(Color.BLUE);
+    Player redPlayer = new HumanPlayer(Color.RED);
+    Player bluePlayer2 = new HumanPlayer(Color.BLUE);
+    Player redPlayer2 = new HumanPlayer(Color.RED);
     values =
             new HashMap<>(Map.of(Direction.NORTH, AttackValue.ONE,
                     Direction.EAST, AttackValue.THREE,

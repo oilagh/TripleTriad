@@ -47,7 +47,7 @@ public abstract class Player implements TTPlayer {
       Card card = other.hand.get(index);
       this.hand.add(new Card(card));
     }
-    this.model = TripleTriadModel(other.model);
+    this.model = new TripleTriadModel(other.model);
   }
 
   /**

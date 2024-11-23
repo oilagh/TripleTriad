@@ -1,6 +1,7 @@
 package cs3500.tripletriad.player;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import cs3500.tripletriad.gamecomponents.Card;
@@ -14,5 +15,9 @@ public class HumanPlayer extends Player {
 
   public HumanPlayer(TTPlayer player) {
     super(player);
+  }
+
+  public HumanPlayer(Color color) {
+    super(color);
   }
 }

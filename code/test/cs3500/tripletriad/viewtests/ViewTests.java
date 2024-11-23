@@ -22,6 +22,7 @@ import cs3500.tripletriad.gamecomponents.Grid;
 import cs3500.tripletriad.gamecomponents.PlaceHolder;
 import cs3500.tripletriad.model.TTModel;
 import cs3500.tripletriad.model.TripleTriadModel;
+import cs3500.tripletriad.player.HumanPlayer;
 import cs3500.tripletriad.player.Player;
 
 /**
@@ -37,8 +38,8 @@ public class ViewTests {
 
   @Before
   public void init() {
-    Player bluePlayer = new Player(Color.BLUE);
-    Player redPlayer = new Player(Color.RED);
+    Player bluePlayer = new HumanPlayer(Color.BLUE);
+    Player redPlayer = new HumanPlayer(Color.RED);
     Map<Direction, AttackValue> values =
             new HashMap<>(Map.of(Direction.NORTH, AttackValue.ONE,
                     Direction.EAST, AttackValue.THREE,
